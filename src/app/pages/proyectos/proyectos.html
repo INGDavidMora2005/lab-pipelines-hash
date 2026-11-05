@@ -1,0 +1,47 @@
+<section class="proyectos" aria-labelledby="proyectos-titulo">
+  <header class="proyectos__encabezado">
+    <p class="proyectos__eyebrow">DevHub · Portafolio</p>
+    <h1 id="proyectos-titulo" class="proyectos__titulo">Proyectos</h1>
+    <p class="proyectos__intro">
+      Una selección de cosas que he construido: APIs, interfaces, bots y herramientas pensadas para
+      hacer la vida de otros desarrolladores un poco más simple.
+    </p>
+  </header>
+
+  <ul class="proyectos__grid" role="list">
+    @for (proyecto of proyectos; track proyecto.nombre; let indice = $index) {
+      <li class="proyectos__item">
+        <article class="tarjeta" [attr.aria-labelledby]="'proyecto-' + indice">
+          <h2 class="tarjeta__nombre" [id]="'proyecto-' + indice">{{ proyecto.nombre }}</h2>
+          <p class="tarjeta__descripcion">{{ proyecto.descripcion }}</p>
+
+          <ul class="tarjeta__etiquetas" [attr.aria-label]="'Tecnologías de ' + proyecto.nombre">
+            @for (etiqueta of proyecto.etiquetas; track etiqueta) {
+              <li class="tarjeta__etiqueta">{{ etiqueta }}</li>
+            }
+          </ul>
+
+          @if (proyecto.enlace) {
+            <a
+              class="tarjeta__enlace"
+              [href]="proyecto.enlace"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto <span aria-hidden="true">↗</span>
+            </a>
+          } @else {
+            <span class="tarjeta__estado">En construcción</span>
+          }
+        </article>
+      </li>
+    }
+  </ul>
+
+  <footer class="proyectos__cta">
+    <p class="proyectos__cta-texto">
+      ¿Tienes una idea entre manos o un equipo buscando a alguien? Escríbeme.
+    </p>
+    <a class="proyectos__boton" routerLink="/contacto">Hablemos</a>
+  </footer>
+</section>
