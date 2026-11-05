@@ -5,6 +5,7 @@
   text-align: center;
 
   h1 {
+    color: var(--text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
@@ -12,7 +13,7 @@
   .subtitle {
     font-size: 1.15rem;
     margin-bottom: 2rem;
-    opacity: 0.8;
+    color: var(--muted);
   }
 }
 
@@ -32,11 +33,13 @@
 }
 
 .btn-primary {
-  background: #4f46e5;
-  border-color: #4f46e5;
-  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
 }
 
 .btn-secondary {
-  color: #4f46e5;
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
 }
